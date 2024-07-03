@@ -9,29 +9,25 @@ import Home from './home/index.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    
-    element:<App/>,
-    children:[
+    element: <App />,
+    children: [
       {
-        path:'/',
-        element:<Home/>
+        path: "/dashboard",
+        element: <Dashboard />,
       },
-      {
-        path:'/dashboard',
-        element:<Dashboard/>
-      }
-    ]
-
+    ],
   },
   {
-    path:'/auth/sign-in',
-    element:<SigninPage/>
-
-
-  }
-])
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/auth/sign-in",
+    element: <SigninPage />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
